@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: hello-world-gateway
+spec:
+  selector:
+    istio: ingressgateway #라벨이 istio=ingressgateway인 Pod를 찾아서 이 Gateway를 연결
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
